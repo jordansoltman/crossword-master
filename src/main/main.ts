@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu } from 'electron';
+import { app, BrowserWindow, Menu, dialog } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
@@ -48,6 +48,18 @@ const createWindow = async () => {
     const menuTemplate: Electron.MenuItemConstructorOptions[] = [
         {
             label: 'CrosswordMaster'
+        },
+        {
+            label: 'File',
+            submenu: [{
+                label: 'New',
+                accelerator: 'CommandOrControl+N',
+                click: async () => {
+                    // const newWin = new BrowserWindow({ width: 200, height: 200, resizable: false });
+                    const filePath = await dialog.showSaveDialog(win!, {});
+                    console.log(filePath)
+                }
+            }]
         }
     ];
     const menu = Menu.buildFromTemplate(menuTemplate);
