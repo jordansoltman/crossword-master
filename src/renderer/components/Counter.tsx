@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './Crossword.scss';
 
 require('./Counter.scss');
 const redCubeImg = require('./RedCube.jpg');

@@ -1,13 +1,19 @@
 import * as React from 'react';
 import './NewCrossword.scss'
+import { useDispatch } from 'react-redux';
+import { newDocument } from '../actions/documentActions';
 
-export default function NewCrossword() {
+export default function NewCrossword(props: {
+    createCrossword: (width: number, height: number) => void;
+}) {
 
     const [width, setWidth] = React.useState(15);
     const [height, setHeight] = React.useState(15);
 
+    const dispatch = useDispatch();
+
     function createCrossword() {
-        console.log("create");
+        props.createCrossword(width, height);
     }
 
     return (
