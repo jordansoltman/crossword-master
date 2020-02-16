@@ -7,8 +7,8 @@ export default function NewCrossword(props: {
     createCrossword: (width: number, height: number) => void;
 }) {
 
-    const [width, setWidth] = React.useState(15);
-    const [height, setHeight] = React.useState(15);
+    const [width, setWidth] = React.useState(10);
+    const [height, setHeight] = React.useState(10);
 
     const dispatch = useDispatch();
 

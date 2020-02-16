@@ -8,5 +8,5 @@ export default function CrosswordContainer() {
 
     const document = useSelector<RootState, DocumentState>((state) => state.document.present);
 
-    return <Crossword document={document!} />
+    return <Crossword document={document!} minimumSpaceWarning={3} />
 }

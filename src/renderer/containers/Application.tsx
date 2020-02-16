@@ -27,7 +27,7 @@ const Application = () => {
                         dispatch(newDocument(width, height))
                         dispatch(setScreen(Screen.MAIN))
                     }} 
-                    />
+                />
             );
         default:
             return <div>ERROR</div>

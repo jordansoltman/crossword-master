@@ -1,7 +1,7 @@
 import { Reducer } from 'redux';
 import undoable, { StateWithHistory } from 'redux-undo';
 import { Document, Cell, CellType } from '../../types';
-import { DocumentAction, NEW_DOCUMENT } from '../actions/documentActions';
+import { DocumentAction, NEW_DOCUMENT, SET_CELL } from '../actions/documentActions';
 
 
 
@@ -9,6 +9,7 @@ const documentReducer: Reducer<DocumentState, DocumentAction> = (
     state = null,
     action: DocumentAction
 ) => {
+
     switch (action.type) {
         case NEW_DOCUMENT:
             return {
@@ -16,7 +17,14 @@ const documentReducer: Reducer<DocumentState, DocumentAction> = (
                 height: action.height,
                 cells: (new Array<Cell>(action.width * action.height)).fill({type: CellType.BLANK })
             };
-            break;
+        case SET_CELL: {
+            const cells = [...state!.cells];
+            cells[action.index] = action.cell;
+            return {
+                ...state!,
+                cells
+            }
+        }
         default:
             return state;
             break;

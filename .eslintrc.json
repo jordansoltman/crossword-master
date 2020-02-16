@@ -36,8 +36,12 @@
     "prettier",
     "@typescript-eslint"
   ],
+  
   "rules": {
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/interactive-supports-focus": 0,
     "global-require": 0,
+    "click-events-have-key-events": 0,
     "import/prefer-default-export": 0,
     "import/no-useless-path-segments": 1,
     "import/no-unresolved": 0,
@@ -67,8 +71,8 @@
     "react/jsx-closing-bracket-location": [
       2,
       {
-        "selfClosing": "props-aligned",
-        "nonEmpty": "after-props"
+        "selfClosing": "tag-aligned",
+        "nonEmpty": "tag-aligned"
       }
     ],
     "react/prop-types": 0,
